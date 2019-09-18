@@ -1,0 +1,85 @@
+﻿<Window x:Class="Rekenmachine.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rekenmachine"
+             
+        ResizeMode="CanMinimize"
+        
+        mc:Ignorable="d"
+        KeyDown="Window_KeyDown"
+        Title="Calculator" Height="470" Width="570" Background="Black" Icon="Logo1.ico">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            
+            
+        </Grid.ColumnDefinitions>
+
+        <Label      x:Name="Toggle"     Grid.Column="0" Grid.Row="0" Margin="10,20,0,0"                                         Background="Lime"           FontSize="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <TextBox    x:Name="Display"    Grid.Column="1" Grid.Row="0" Margin="0,20,10,0"                                         Background="Lime"           FontSize="30" PreviewTextInput="NumbersOnly" Grid.ColumnSpan="4" BorderThickness="0" TextAlignment="Right"/>
+        <Label      x:Name="Step"       Grid.Column="5" Grid.Row="0" Margin="45,30,45,10"                                       Background="WhiteSmoke"     FontSize="15" Grid.ColumnSpan="3" HorizontalContentAlignment="Right"/>
+                                                                                                                             
+        <Button x:Name="Button_MS"      Grid.Column="0" Grid.Row="1" Margin="10,10" Content="MS" Click="Button_MS_Click"        Background="BlueViolet"     FontSize="25"/>
+        <Button x:Name="Button_MR"      Grid.Column="0" Grid.Row="2" Margin="10,10" Content="MR" Click="Button_MR_Click"        Background="BlueViolet"     FontSize="25"/>
+        <Button x:Name="Button_MPlus"   Grid.Column="0" Grid.Row="3" Margin="10,10" Content="M+" Click="Button_MPlus_Click"     Background="BlueViolet"     FontSize="25"/>
+        <Button x:Name="Button_MMin"    Grid.Column="0" Grid.Row="4" Margin="10,10" Content="M-" Click="Button_MMin_Click"      Background="BlueViolet"     FontSize="25"/>
+                                                                                                                             
+        <Button x:Name="Button_7"       Grid.Column="1" Grid.Row="1" Margin="10,10" Content="7"  Click="Button_7_Click"         Background="DimGray"        FontSize="37"/>
+        <Button x:Name="Button_4"       Grid.Column="1" Grid.Row="2" Margin="10,10" Content="4"  Click="Button_4_Click"         Background="DimGray"        FontSize="37"/>
+        <Button x:Name="Button_1"       Grid.Column="1" Grid.Row="3" Margin="10,10" Content="1"  Click="Button_1_Click"         Background="DimGray"        FontSize="37"/>
+        <Button x:Name="MC"             Grid.Column="1" Grid.Row="4" Margin="10,10" Content="MC" Click="Button_MC_Click"        Background="BlueViolet"     FontSize="25"/>
+        
+                                                                                                                             
+        <Button x:Name="Button_8"       Grid.Column="2" Grid.Row="1" Margin="10,10" Content="8"  Click="Button_8_Click"         Background="DimGray"        FontSize="37"/>
+        <Button x:Name="Button_5"       Grid.Column="2" Grid.Row="2" Margin="10,10" Content="5"  Click="Button_5_Click"         Background="DimGray"        FontSize="37"/>
+        <Button x:Name="Button_2"       Grid.Column="2" Grid.Row="3" Margin="10,10" Content="2"  Click="Button_2_Click"         Background="DimGray"        FontSize="37"/>
+        <Button x:Name="Button_0"       Grid.Column="2" Grid.Row="4" Margin="10,10" Content="0"  Click="Button_0_Click"         Background="DimGray"        FontSize="37"/>
+                                                                                                                             
+        <Button x:Name="Button_9"       Grid.Column="3" Grid.Row="1" Margin="10,10" Content="9"  Click="Button_9_Click"         Background="DimGray"        FontSize="37"/>
+        <Button x:Name="Button_6"       Grid.Column="3" Grid.Row="2" Margin="10,10" Content="6"  Click="Button_6_Click"         Background="DimGray"        FontSize="37"/>
+        <Button x:Name="Button_3"       Grid.Column="3" Grid.Row="3" Margin="10,10" Content="3"  Click="Button_3_Click"         Background="DimGray"        FontSize="37"/>
+        <Button x:Name="Button_Komma"   Grid.Column="3" Grid.Row="4" Margin="10,10" Content=","  Click="Button_Komma_Click"     Background="Navy"           FontSize="37"/>
+                                                                                                                             
+        <Button x:Name="Button_Plus"    Grid.Column="4" Grid.Row="1" Margin="10,10" Content="+"  Click="Button_Plus_Click"      Background="Navy"           FontSize="37"/>
+        <Button x:Name="Button_Min"     Grid.Column="4" Grid.Row="2" Margin="10,10" Content="-"  Click="Button_Min_Click"       Background="Navy"           FontSize="37"/>
+        <Button x:Name="Button_Keer"    Grid.Column="4" Grid.Row="3" Margin="10,10" Content="x"  Click="Button_Keer_Click"      Background="Navy"           FontSize="37"/>
+        <Button x:Name="Button_Delen"   Grid.Column="4" Grid.Row="4" Margin="10,10" Content="÷"  Click="Button_Delen_Click"     Background="Navy"           FontSize="37"/>
+
+        <Label x:Name="MemoryDisplay"   Grid.Column="0" Grid.Row="6" Margin="20,20" Content=""                                  Background="WhiteSmoke"     FontSize="15" Grid.ColumnSpan="2" Foreground="BlueViolet" HorizontalContentAlignment="Center" />
+        <ToggleButton x:Name="Euro"     Grid.Column="2" Grid.Row="6" Margin="15,10" Content="€"                                 Background="DeepSkyBlue"    FontSize="32" Checked="Euro_Checked"    Unchecked="Euro_Unchecked"/>
+        <Button x:Name="Procent"        Grid.Column="3" Grid.Row="6" Margin="15,10" Content="%"  Click="Button_Procent_Click"   Background="Navy"           FontSize="32"/>
+        <Button x:Name="Button_Is"      Grid.Column="5" Grid.Row="6" Margin="45,10,45,10" Content="="  Click="Button_Is_Click"  Background="Lime"           FontSize="37" FontWeight="Bold" Grid.ColumnSpan="3" />
+
+        <Button x:Name="C"              Grid.Column="4" Grid.Row="6" Margin="10,10" Content="C"  Click="Button_C_Click"         Background="Crimson"        FontSize="35"/>
+        <Button x:Name="Button_CE"      Grid.Column="5" Grid.Row="4" Margin="75,10" Content="CE" Click="Button_CE_Click"        Background="Crimson"        FontSize="35" Grid.ColumnSpan="3"/>
+
+        <Label  x:Name="History1"       Grid.Column="5" Grid.Row="1" Margin="10,10,10,0" Content=""                             Background="Gainsboro"      FontSize="12" Grid.ColumnSpan="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <Label  x:Name="History2"       Grid.Column="5" Grid.Row="2" Margin="10,0" Content=""                                   Background="Gainsboro"      FontSize="12" Grid.ColumnSpan="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <Label  x:Name="History3"       Grid.Column="5" Grid.Row="3" Margin="10,0" Content=""                                   Background="Gainsboro"      FontSize="12" Grid.ColumnSpan="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+
+    </Grid>
+    
+</Window>
